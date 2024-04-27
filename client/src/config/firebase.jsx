@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { server } from "../api";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
@@ -26,6 +27,8 @@ const storage = getStorage(app);
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    const userType = await server.post("/api/v1/auth/login", { email });
+    return userType.data;
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -36,14 +39,6 @@ const registerWithEmailAndPassword = async (name, type, email, password) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
-    // await addDoc(collection(db, "users"), {
-    //   uid: user.uid,
-    //   name,
-    //   authProvider: "local",
-    //   type,
-    //   email,
-    //   mentor: false,
-    // });
     return user;
   } catch (err) {
     console.error(err);
