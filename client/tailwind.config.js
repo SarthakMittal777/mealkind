@@ -3,7 +3,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        primary: ["Inter", "sans-serif"],
+        brand: ["Gloria Hallelujah", "cursive"],
+      },
+    },
   },
   plugins: [],
 };

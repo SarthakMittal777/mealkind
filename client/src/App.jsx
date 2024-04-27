@@ -1,8 +1,13 @@
+import AppRouter from "./Router";
+import { Navbar, Footer } from "./components";
+
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <>
+      <Navbar />
+      <AppRouter />
+      <Footer />
+    </>
   );
 };
 
