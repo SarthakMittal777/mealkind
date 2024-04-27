@@ -1,0 +1,14 @@
+{
+  "name": "mealkind",
+  "version": "1.0.0",
+  "description": "A food relief network that connects surplus food from restaurants or events with local charities or food banks",
+  "repository": "https://github.com/arpankumarde/mealkind",
+  "author": "arpankumarde <134305585+arpankumarde@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
+    "build:client": "cd client && npm run build"
+  }
+}
