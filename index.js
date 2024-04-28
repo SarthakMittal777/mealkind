@@ -13,7 +13,7 @@ app.use(express.json());
 dotenv.config();
 connectDB();
 
-const port = process.env.SERVER_PORT;
+const port = process.env.SERVER_PORT || 5001;
 
 app.use(express.json());
 
