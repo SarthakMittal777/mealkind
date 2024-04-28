@@ -13,13 +13,13 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      console.log(email, password, userType, organization);
       const user = await registerWithEmailAndPassword(
         organization,
         userType,
         email,
         password
       );
+      
       console.log(user);
     } catch (error) {
       console.log(error);
@@ -33,7 +33,7 @@ const Register = () => {
     } else if (user && userType === "supplier") {
       navigate("/supplier/dashboard");
     }
-  }, [user, navigate]);
+  }, [user, navigate, userType]);
 
   return (
     <div className="flex justify-center items-center min-h-screen py-4 bg-gray-100">

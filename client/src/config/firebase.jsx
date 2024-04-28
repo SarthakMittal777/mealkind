@@ -27,8 +27,9 @@ const storage = getStorage(app);
 const logInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    const userType = await server.post("/api/v1/auth/login", { email });
-    return userType.data;
+    const { data } = await server.post("/api/v1/auth/login", { email });
+    console.log(data.user);
+    return data.user.type;
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -37,8 +38,17 @@ const logInWithEmailAndPassword = async (email, password) => {
 
 const registerWithEmailAndPassword = async (name, type, email, password) => {
   try {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
-    const user = res.user;
+    const { user } = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    await server.post("/api/v1/auth/register", {
+      uid: user.uid,
+      name,
+      type,
+      email,
+    });
     return user;
   } catch (err) {
     console.error(err);
@@ -58,6 +68,7 @@ const sendPasswordReset = async (email) => {
 
 const logout = () => {
   signOut(auth);
+  
 };
 
 export {
