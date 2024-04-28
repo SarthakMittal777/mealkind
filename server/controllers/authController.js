@@ -1,9 +1,9 @@
-const User = require("../models/UserModel");
+const User = require("../models/userModel");
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, type } = req.body;
-    const user = await User.create({ name, email, type });
+    const { uid, name, email, type } = req.body;
+    const user = await User.create({ uid, name, email, type });
     res.status(201).json({ user });
   } catch (err) {
     res.status(400).json({ message: err.message });
