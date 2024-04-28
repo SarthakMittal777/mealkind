@@ -1,5 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 import { Home, Donate, ThankYou, NotFound, Login, Register } from "./pages";
+import {
+  CharityProfile,
+  CharityDashboard,
+  CharityCreateRequest,
+  CharityHistory,
+  CharityNotifications,
+  CharitySupport,
+  SupplierProfile,
+  SupplierDashboard,
+  SupplierFulfillRequest,
+  SupplierHistory,
+  SupplierNotifications,
+  SupplierSupport,
+} from "./pages";
 
 const AppRouter = () => {
   return (
@@ -14,17 +28,25 @@ const AppRouter = () => {
       <Route path="/org/:slug" element={<Home />} />
       <Route path="/hero/:slug" element={<Home />} />
 
-      <Route path="/charity/profile" element={<Home />} />
-      <Route path="/charity/dashboard" element={<Home />} />
-      <Route path="/charity/create-request" element={<Home />} />
-      <Route path="/charity/history" element={<Home />} />
-      <Route path="/charity/notifications" element={<Home />} />
-      <Route path="/charity/support" element={<Home />} />
+      <Route path="/charity/profile" element={<CharityProfile />} />
+      <Route path="/charity/dashboard" element={<CharityDashboard />} />
+      <Route
+        path="/charity/create-request"
+        element={<CharityCreateRequest />}
+      />
+      <Route path="/charity/history" element={<CharityHistory />} />
+      <Route path="/charity/notifications" element={<CharityNotifications />} />
+      <Route path="/charity/support" element={<CharitySupport />} />
 
-      <Route path="/supplier/profile" element={<Home />} />
-      <Route path="/supplier/dashboard" element={<Home />} />
-      <Route path="/supplier/notifications" element={<Home />} />
-      <Route path="/supplier/support" element={<Home />} />
+      <Route path="/supplier/profile" element={<SupplierProfile />} />
+      <Route path="/supplier/dashboard" element={<SupplierDashboard/>} />
+      <Route
+        path="/supplier/fulfill-request"
+        element={<SupplierFulfillRequest />}
+      />
+      <Route path="/supplier/history" element={<SupplierHistory />} />
+      <Route path="/supplier/notifications" element={<SupplierNotifications/>} />
+      <Route path="/supplier/support" element={<SupplierSupport />} />
 
       <Route path="*" element={<NotFound />} />
     </Routes>

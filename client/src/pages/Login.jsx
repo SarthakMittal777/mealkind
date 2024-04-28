@@ -14,6 +14,11 @@ const Login = () => {
     try {
       const user = await logInWithEmailAndPassword(email, password);
       console.log(user);
+      if (user === "charity") {
+        navigate("/charity/dashboard");
+      } else if (user === "supplier") {
+        navigate("/supplier/dashboard");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -33,7 +38,7 @@ const Login = () => {
       <div className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-semibold mb-6">Login</h2>
         <form onSubmit={handleLogin}>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label
               htmlFor="userType"
               className="block text-sm font-medium text-gray-700"
@@ -51,7 +56,7 @@ const Login = () => {
               <option value="charity">Charity</option>
               <option value="supplier">Food Supplier</option>
             </select>
-          </div>
+          </div> */}
           <div className="mb-4">
             <label
               htmlFor="email"
