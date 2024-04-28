@@ -6,9 +6,15 @@
   "author": "arpankumarde <134305585+arpankumarde@users.noreply.github.com>",
   "license": "MIT",
   "private": false,
+  "main": "index.js",
   "scripts": {
-    "dev:client": "cd client && npm run dev",
-    "dev:server": "cd server && npm run dev",
-    "build:client": "cd client && npm run build"
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2"
   }
 }
